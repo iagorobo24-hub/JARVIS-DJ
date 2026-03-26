@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Syne", sans-serif;
+
+  --color-app-bg: var(--bg);
+  --color-app-surface: var(--surface);
+  --color-app-surface2: var(--surface2);
+  --color-app-primary: var(--primary);
+  --color-app-secondary: var(--secondary);
+  --color-app-text: var(--text);
+  --color-app-text-muted: var(--text-secondary);
+  --color-app-border: var(--border);
+
+  --color-tier-god: var(--tier-god);
+  --color-tier-elite: var(--tier-elite);
+  --color-tier-rising: var(--tier-rising);
+  --color-tier-underground: var(--tier-underground);
+
+  --color-app-success: var(--success);
+  --color-app-warning: var(--warning);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --surface2: #16161f;
+  --primary: #e94560;
+  --secondary: #00d4ff;
+  --text: #e2e2f0;
+  --text-secondary: #6b6b8a;
+  --border: #1e1e2e;
+
+  --tier-god: #e94560;
+  --tier-elite: #a855f7;
+  --tier-rising: #3b82f6;
+  --tier-underground: #6b6b8a;
+
+  --success: #22c55e;
+  --warning: #f97316;
+}
+
+.light {
+  --bg: #f5f5f7;
+  --surface: #ffffff;
+  --surface2: #f0f0f5;
+  --primary: #e94560;
+  --secondary: #007aff;
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --border: #d2d2d7;
+
+  --tier-god: #e94560;
+  --tier-elite: #8b5cf6;
+  --tier-rising: #2563eb;
+  --tier-underground: #86868b;
+
+  --success: #16a34a;
+  --warning: #ea580c;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.font-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Technical Grid Pattern */
+.bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+.data-row {
+  display: grid;
+  grid-template-columns: 60px 2fr 1fr 1fr 120px;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.data-row:hover {
+  background: var(--surface2);
+}
+
+.col-header {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.data-value {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes barGrow {
+  from { width: 0; }
+  to { width: var(--final-width); }
+}
+
+.animate-bar-grow {
+  animation: barGrow 1s ease-out forwards;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(17, 17, 24, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+}
+
+.mask-fade {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
